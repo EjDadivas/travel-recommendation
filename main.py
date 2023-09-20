@@ -2,7 +2,7 @@ from typing import Union
 from uvicorn import run
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
-
+from pycountry import countries
 app = FastAPI()
 
 
@@ -36,14 +36,22 @@ def redirect_to_recommend():
     return RedirectResponse(url="/travel-recommendations")
 
 
+def country_validation(country: Union[str, None] = None) -> bool:
+    try:
+        countries.search_fuzzy(country)
+    except:
+        return False
+    if country is None:
+        return False
+    return True
+
+
 @app.get("/travel-recommendations")
 def recommend(country: Union[str, None] = None, season: Union[str, None] = None):
-
-    # if both are none return something
     if country is None and season is None:
         return {"home": "this is the home page"}
 
-    if country is None:
+    if not country_validation(country):
         raise HTTPException(status_code=404, detail="Invalid Country")
 
     if season is None or season.lower() not in seasons:
