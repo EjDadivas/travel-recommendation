@@ -28,35 +28,33 @@ sampleData = {
     ]
 }
 
-seasons = {"winter", "summer", "spring", "autumn"}
-
 
 @app.get("/")
 def redirect_to_recommend():
     return RedirectResponse(url="/travel-recommendations")
 
 
-def country_validation(country: Union[str, None] = None) -> bool:
-    try:
-        countries.search_fuzzy(country)
-    except:
-        return False
-    if country is None:
-        return False
-    return True
-
-
 @app.get("/travel-recommendations")
-def recommend(country: Union[str, None] = None, season: Union[str, None] = None):
+async def recommend(country: Union[str, None] = None, season: Union[str, None] = None):
     if country is None and season is None:
         return {"home": "this is the home page"}
 
-    if not country_validation(country):
-        raise HTTPException(status_code=404, detail="Invalid Country")
+    errors = []
+    if country:
+        try:
+            result = countries.search_fuzzy(country)
+            if len(result) != 1:
+                errors.append("Invalid country")
+        except:
+            errors.append("Invalid Country")
+    else:
+        errors.append("Invalid country")
 
-    if season is None or season.lower() not in seasons:
-        raise HTTPException(
-            status_code=404, detail="Invalid Season")
+    if season is None or season.lower() not in {"winter", "summer", "spring", "autumn"}:
+        errors.append("Invalid season")
+
+    if errors:
+        raise HTTPException(status_code=400, detail={"errors": errors})
 
     return {"country": country, "season": season}
 
