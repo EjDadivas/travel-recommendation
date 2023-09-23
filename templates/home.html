@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelAnywhere</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <body>
+
+        <!--===========Nav Bar=================-->
+        <section class="nav-bar">
+            <div class="logo">TravelAnywhere</div>
+            </div>
+        </section>
+        <!--===============Banner================-->
+        <section class="banner">
+            <div class="banner-text-item">
+                <div class="banner-heading">
+                    <h1>Find your Next tour!</h1>
+                </div>
+                <form method="GET" class="form" action="/travel-recommendations" >
+                    <input type="text" name="country" id="country" placeholder="Where would you like to go?">
+                    <input type="text" name="season" id="season" class="date" list="seasons" placeholder="Select Season">
+                    <datalist id="seasons">
+                            <option>Summer</option>
+                            <option>Autumn</option>
+                            <option>Winter</option>
+                            <option>Spring</option>
+                    </datalist>
+                    <button type="submit" class="book">Recommend me</button>
+                </form>
+            </div>
+        </section>
+    
+        <!--==============Places===================-->
+        {%if data%}
+        <section class="places">
+            <div class="places-text">
+                <h2>Enjoy {{data["season"].title()}} Adventures in {{data["country"].title()}}</h2>
+            </div>
+            <div class="cards">
+                {% for data in data["recommendations"]%}
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293736/james-wheeler_xqmq2y.jpg">
+                        </div>
+                    </div>
+                    <div class="text">
+                        <h2>{{data["location"]}}</h2>
+                        <p>{{data["activity"]}}</p>
+                        <a href="{{data["map_link"]}}" class="card-box">See Location</a>
+                    </div>
+        
+                </div>
+                {%endfor%}
+            </div>
+           
+        </section>
+        {%endif%}
+        </body>
+        </html>
+  </body>
+</html>
