@@ -41,7 +41,6 @@ body, html {
     box-shadow: 3px 3px 10px lightslategray;
     align-items: center;
     justify-content: center;
-    position: sticky;
     top: 0;
     z-index: 1;
 }
@@ -233,6 +232,7 @@ ul.menu {
 }
 
 .places-text h2 {
+    margin-top: 30px;
     font-family: Barlow Condensed;
     font-size: 55px;
     color: #191D34;
@@ -550,7 +550,9 @@ ul.menu {
         margin-bottom: -130px;
         width: 400px;
     }
-
+    .places {
+        margin-top: 200px;
+    }
     .places-text {
         margin-top: 200px;
     }
@@ -576,15 +578,15 @@ ul.menu {
 
 @media all and (max-width: 1086px) {
     .places .cards .text {
-        line-height: 40px;
+        line-height: 5px;
     }
 
     .cards .text .h2 {
-        font-size: 12px;
+        font-size: 24px;
     }
 
     .cards .img-card img {
-        height: 260px;
+        width: 100%;
     }
 }
 
@@ -608,3 +610,26 @@ ul.menu {
     }
 }
 
+/*------------Zoom in Photos--------------*/
+.zoom-img {
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.zoom-img .img-card {
+    position: absolute;
+    overflow: hidden;
+}
+
+.img-card img {
+    -webkit-transition: 0.8s ease;
+    transition: 0.8s ease;
+}
+
+.card:hover .zoom-img img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

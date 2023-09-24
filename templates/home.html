@@ -22,8 +22,8 @@
                     <h1>Find your Next tour!</h1>
                 </div>
                 <form method="GET" class="form" action="/travel-recommendations" >
-                    <input type="text" name="country" id="country" placeholder="Where would you like to go?">
-                    <input type="text" name="season" id="season" class="date" list="seasons" placeholder="Select Season">
+                    <input type="text" name="country" id="country" placeholder="Where would you like to go?" value="{{ data['country'].title() if data }}">
+                    <input type="text" name="season" id="season" class="date" list="seasons" placeholder="Select Season" value="{{ data['season'].title() if data }}">
                     <datalist id="seasons">
                             <option>Summer</option>
                             <option>Autumn</option>
@@ -34,10 +34,17 @@
                 </form>
             </div>
         </section>
+        <section class="places">
+        {%if errors%}
     
+        <div class="places-text">
+            {% for error in errors%}
+            <h2>{{error}}</h2>
+            {%endfor%}
+        </div>
+        {%endif%}
         <!--==============Places===================-->
         {%if data%}
-        <section class="places">
             <div class="places-text">
                 <h2>Enjoy {{data["season"].title()}} Adventures in {{data["country"].title()}}</h2>
             </div>
@@ -46,7 +53,7 @@
                 <div class="card">
                     <div class="zoom-img">
                         <div class="img-card">
-                            <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293736/james-wheeler_xqmq2y.jpg">
+                            <img src="{{ url_for('static', path='/airplane.jpg') }}">
                         </div>
                     </div>
                     <div class="text">
@@ -59,8 +66,9 @@
                 {%endfor%}
             </div>
            
-        </section>
+
         {%endif%}
+    </section>
         </body>
         </html>
   </body>
