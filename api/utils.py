@@ -26,8 +26,6 @@ def validate_travel_params(country: str, season: str) ->list:
     
     return errors
 
-print(validate_travel_params("Japan", "Spring"))
-print(validate_travel_params("United", "Spring"))
 def get_recommendations(country, season):
     # Create prompt text with user input
     prompt = f"Recommend three exciting travel destinations, along with suggested activities and map links, for a memorable trip in {country} during a {season} season."
