@@ -50,15 +50,7 @@ To run the Travel Recommender locally, follow these steps:
 
 Configure the application by setting environment variables, including the OpenAI API key, in a `.env` file.
 
-## 5. Contributing
-
-Contributions to this project are welcome! Please follow the guidelines in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
-
-## 6. License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 7. Project Structure
+## 5. Project Structure
 
 The project structure is organized as follows:
 
@@ -68,7 +60,7 @@ The project structure is organized as follows:
 - `utils.py`: Contains utility functions for input validation and recommendation generation.
 - `tests` folder: Contains unit tests for the project.
 
-## 8. HTML Templates and Static Files
+## 6. HTML Templates and Static Files
 
 - `static` folder: Contains static assets such as CSS styles and images.
 - `templates` folder: Contains HTML templates used for rendering web pages, including `home.html`.
