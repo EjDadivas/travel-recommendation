@@ -8,10 +8,8 @@ Welcome to the Travel Recommender documentation. This document provides an overv
 2. [Installation](#2-installation)
 3. [Usage](#3-usage)
 4. [Configuration](#4-configuration)
-5. [Contributing](#5-contributing)
-6. [License](#6-license)
-7. [Project Structure](#7-project-structure)
-8. [HTML Templates and Static Files](#8-html-templates-and-static-files)
+5. [Project Structure](#7-project-structure)
+6. [HTML Templates and Static Files](#8-html-templates-and-static-files)
 
 ---
 
