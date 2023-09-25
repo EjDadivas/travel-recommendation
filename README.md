@@ -54,26 +54,27 @@ Here is an example of the JSON response you can expect from the Travel Recommend
 
 ```json
 {
-    "country": "Bahamas",
-    "season": "Summer",
-    "recommendations": [
-        {
-            "location": "Nassau",
-            "activity": "Visit Paradise Island",
-            "map_link": "https://goo.gl/maps/VdX82PdSmxhpb6FX7"
-        },
-        {
-            "location": "Exuma",
-            "activity": "Swim with the pigs",
-            "map_link": "https://goo.gl/maps/Z5KJnoFxh9ktarkX9"
-        },
-        {
-            "location": "Andros Island",
-            "activity": "Explore Blue Holes",
-            "map_link": "https://goo.gl/maps/yXnhTrgHZxt6zhLR9"
-        }
-    ]
+  "country": "Bahamas",
+  "season": "Summer",
+  "recommendations": [
+    {
+      "location": "Nassau",
+      "activity": "Visit Paradise Island",
+      "map_link": "https://goo.gl/maps/VdX82PdSmxhpb6FX7"
+    },
+    {
+      "location": "Exuma",
+      "activity": "Swim with the pigs",
+      "map_link": "https://goo.gl/maps/Z5KJnoFxh9ktarkX9"
+    },
+    {
+      "location": "Andros Island",
+      "activity": "Explore Blue Holes",
+      "map_link": "https://goo.gl/maps/yXnhTrgHZxt6zhLR9"
+    }
+  ]
 }
+```
 
 ## 4. Configuration
 
@@ -95,4 +96,7 @@ The project structure is organized as follows:
 - `templates` folder: Contains HTML templates used for rendering web pages, including `home.html`.
 
 ---
+
+```
+
 ```
