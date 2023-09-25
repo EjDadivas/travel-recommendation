@@ -96,7 +96,3 @@ The project structure is organized as follows:
 - `templates` folder: Contains HTML templates used for rendering web pages, including `home.html`.
 
 ---
-
-```
-
-```
