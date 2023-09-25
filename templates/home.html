@@ -49,18 +49,19 @@
                 <h2>Enjoy {{data["season"].title()}} Adventures in {{data["country"].title()}}</h2>
             </div>
             <div class="cards">
-                {% for data in data["recommendations"]%}
+                {% for info in data["recommendations"]%}
                 <div class="card">
                     <div class="zoom-img">
                         <div class="img-card">
-                            <img src="{{ url_for('static', path='/airplane.jpg') }}">
+                            <img src="{{ url_for('static', path='/' + data["season"].title() + '.jpg') }}">
+
                         </div>
                     </div>
                     <div class="text">
-                        <h2>{{data["activity"]}}</h2>
-                        <p class="location">&#9992; {{data["location"]}}</p>
+                        <h2>{{info["activity"]}}</h2>
+                        <p class="location">&#9992; {{info["location"]}}</p>
                         <div class="card-box">
-                        <a href="{{data["map_link"]}}" class="time">See Location</a>
+                        <a href="{{info["map_link"]}}" class="time">See Location</a>
                         </div>
                     </div>
         
