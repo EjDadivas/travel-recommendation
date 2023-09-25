@@ -2,14 +2,18 @@
 
 Welcome to the Travel Recommender documentation. This document provides an overview of the project, installation instructions, usage guidelines, and information about project structure and testing.
 
+![Frontend Result](static/frontend.jpeg)
+
+**Caption**: This image represents the expected frontend result of the Travel Recommender.
+
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
 2. [Installation](#2-installation)
 3. [Usage](#3-usage)
 4. [Configuration](#4-configuration)
-5. [Project Structure](#7-project-structure)
-6. [HTML Templates and Static Files](#8-html-templates-and-static-files)
+5. [Project Structure](#5-project-structure)
+6. [HTML Templates and Static Files](#6-html-templates-and-static-files)
 
 ---
 
@@ -44,6 +48,33 @@ To run the Travel Recommender locally, follow these steps:
 - If no parameters are provided, the application will display a homepage.
 - The endpoint validates input parameters and displays travel recommendations or errors.
 
+**Example JSON Response**
+
+Here is an example of the JSON response you can expect from the Travel Recommender API when making a successful request:
+
+```json
+{
+    "country": "Bahamas",
+    "season": "Summer",
+    "recommendations": [
+        {
+            "location": "Nassau",
+            "activity": "Visit Paradise Island",
+            "map_link": "https://goo.gl/maps/VdX82PdSmxhpb6FX7"
+        },
+        {
+            "location": "Exuma",
+            "activity": "Swim with the pigs",
+            "map_link": "https://goo.gl/maps/Z5KJnoFxh9ktarkX9"
+        },
+        {
+            "location": "Andros Island",
+            "activity": "Explore Blue Holes",
+            "map_link": "https://goo.gl/maps/yXnhTrgHZxt6zhLR9"
+        }
+    ]
+}
+
 ## 4. Configuration
 
 Configure the application by setting environment variables, including the OpenAI API key, in a `.env` file.
@@ -64,3 +95,4 @@ The project structure is organized as follows:
 - `templates` folder: Contains HTML templates used for rendering web pages, including `home.html`.
 
 ---
+```
