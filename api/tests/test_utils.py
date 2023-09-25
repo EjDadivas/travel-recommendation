@@ -1,4 +1,3 @@
-# tests/test_utils.py
 from travelRecommendation.api.utils import validate_travel_params, get_recommendations
 
 
@@ -7,8 +6,9 @@ def test_validate_travel_params_valid():
     assert errors== []
     
 def test_validate_travel_params_invalid():
+    assert "Invalid Country" in validate_travel_params("United States", "Autumn")
     assert "Invalid Country" in validate_travel_params("Invalid_country", "spring")
-    assert "Invalid Season" in validate_travel_params("Japan", "invalid_season")
+    assert "Invalid Season" in validate_travel_params("Australia", "invalid_season")
     assert validate_travel_params("Invalid_country", "invalid_season") == ["Invalid Country", "Invalid Season"]
 
 def test_get_recommendations():

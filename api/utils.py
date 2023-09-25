@@ -5,14 +5,12 @@ import openai
 import os
 
 load_dotenv()
-
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def validate_travel_params(country: str, season: str) ->list:
     errors = []
     if country:
         try:
-            # TODO: Fix Countries search Fuzzy  ``
             result = countries.search_fuzzy(country)
             if (len(result)) != 1:
                 errors.append("Invalid Country")
@@ -27,8 +25,7 @@ def validate_travel_params(country: str, season: str) ->list:
     return errors
 
 def get_recommendations(country, season):
-    # Create prompt text with user input
-    prompt = f"Recommend three exciting travel destinations, along with suggested activities and map links, for a memorable trip in {country} during a {season} season."
+    prompt = f"Recommend three exciting travel destinations for a memorable trip in {country} during a {season} season."
 
     schema = {
         "type": "object",
@@ -48,15 +45,15 @@ def get_recommendations(country, season):
                     "properties": {
                         "location": {
                             "type": "string",
-                            "description": "Name of the location (e.g. Whistler, British Columbia)"
+                            "description": "Name of the Location"
                         },
                         "activity": {
                             "type": "string",
-                            "description": "Describe the kind of activity, (e.g. Go skiing or snowboarding on the beautiful slopes.)"
+                            "description": "Name of the Activitiy"
                         },
                         "map_link": {
                             "type": "string",
-                            "description": "Link to a map for the location (e.g. \"https://www.google.com/maps?q=Old+Quebec+City+Quebec)"
+                            "description": "Google Map Link of the location"
                         }
                     },
                 }
@@ -74,7 +71,6 @@ def get_recommendations(country, season):
         functions=[{"name": "set_travel_params", "parameters": schema}],
         function_call={"name": "set_travel_params"}
     )
-
 
     generated_text = response['choices'][0]['message']['function_call']['arguments']
     

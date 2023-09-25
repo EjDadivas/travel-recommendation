@@ -19,7 +19,7 @@
         <section class="banner">
             <div class="banner-text-item">
                 <div class="banner-heading">
-                    <h1>Find your Next tour!</h1>
+                    <h1>Find the Perfect Place to Go!</h1>
                 </div>
                 <form method="GET" class="form" action="/travel-recommendations" >
                     <input type="text" name="country" id="country" placeholder="Where would you like to go?" value="{{ data['country'].title() if data }}">
@@ -57,9 +57,11 @@
                         </div>
                     </div>
                     <div class="text">
-                        <h2>{{data["location"]}}</h2>
-                        <p>{{data["activity"]}}</p>
-                        <a href="{{data["map_link"]}}" class="card-box">See Location</a>
+                        <h2>{{data["activity"]}}</h2>
+                        <p class="location">&#9992; {{data["location"]}}</p>
+                        <div class="card-box">
+                        <a href="{{data["map_link"]}}" class="time">See Location</a>
+                        </div>
                     </div>
         
                 </div>

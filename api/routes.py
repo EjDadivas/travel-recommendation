@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Request, Response
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from typing import Union
+
 from .utils import validate_travel_params, get_recommendations
 
 router = APIRouter()
@@ -20,7 +21,6 @@ async def recommend(request: Request, country: Union[str, None] = None, season: 
     errors: list = validate_travel_params(country, season)
     if not errors:
         data = get_recommendations(country, season)
-        
     return templates.TemplateResponse("home.html", {"request": request, "data" : data, "errors": errors})
     
 

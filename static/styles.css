@@ -80,7 +80,7 @@ ul.menu {
 
 /*=============================Banner=============================*/
 .banner {
-    background-image: url("https://res.cloudinary.com/dxssqb6l8/image/upload/v1605294054/young-woman-enjoying-beautiful-scenery-of-lago-di-braies-italy-picjumbo-com_aa0fvw.jpg");
+    background-image: url('https://cdnwp.tonyrobbins.com/wp-content/uploads/2018/12/achieveyourgoals.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -281,7 +281,9 @@ ul.menu {
     justify-content: center;
     text-align: center;
 }
-
+.cards .card-box a {
+    text-decoration: none;
+}
 .cards .time {
     flex: 1;
 }
